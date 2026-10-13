@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Forma Sound — Instrument Music Lab</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="page">
+<header><a class="logo" href="#"><span class="mark">f</span> forma<span class="dot">.</span><small> SOUND LAB</small></a><span class="live"><i></i> CREATIVE STUDIO</span></header>
+<section class="hero"><p class="eyebrow">A LITTLE MUSIC, MADE BY YOU</p><h1>Shape a sound.<br><em>Find your rhythm.</em></h1><p class="lede">Generate original MIDI patterns with piano, guitar, drums, flute, trumpet and more. No music theory degree required.</p></section>
+<main class="layout">
+<section class="panel controls">
+<div class="section-title"><div><p class="eyebrow">01 / YOUR SOUND</p><h2>Build a track</h2></div><span class="badge">MIDI GENERATOR</span></div>
+<label for="instrument">Instruments <span class="selection-note">Select as many as you like</span></label><div class="instrument-grid" id="instrument-grid">
+<button class="instrument selected" aria-pressed="true" data-instrument="piano"><span>♬</span><b>Piano</b><small>Warm & classic</small></button>
+<button class="instrument" aria-pressed="false" data-instrument="guitar"><span>♩</span><b>Guitar</b><small>Soft & plucked</small></button>
+<button class="instrument" aria-pressed="false" data-instrument="drums"><span>◉</span><b>Drums</b><small>Beat & rhythm</small></button>
+<button class="instrument" aria-pressed="false" data-instrument="flute"><span>♫</span><b>Flute</b><small>Light & airy</small></button>
+<button class="instrument" aria-pressed="false" data-instrument="trumpet"><span>♬</span><b>Trumpet</b><small>Bright & bold</small></button>
+<button class="instrument" aria-pressed="false" data-instrument="violin"><span>♩</span><b>Violin</b><small>Expressive</small></button>
+<button class="instrument" aria-pressed="false" data-instrument="bass"><span>𝄢</span><b>Bass</b><small>Deep & steady</small></button>
+<button class="instrument" aria-pressed="false" data-instrument="strings"><span>♫</span><b>Strings</b><small>Full & cinematic</small></button>
+</div>
+<div class="field-grid">
+<div><label for="key">Musical key</label><select id="key"><option>C</option><option>D</option><option>E</option><option>F</option><option>G</option><option>A</option><option>B</option><option>C#</option><option>D#</option><option>F#</option><option>G#</option><option>A#</option></select></div>
+<div><label for="scale">Mood / scale</label><select id="scale"><option value="major">Bright · Major</option><option value="minor">Moody · Minor</option><option value="pentatonic">Dreamy · Pentatonic</option><option value="blues">Blues</option></select></div>
+<div><label for="bpm">Tempo <output id="bpm-out">100 BPM</output></label><input id="bpm" type="range" min="50" max="180" value="100"></div>
+<div><label for="bars">Length</label><select id="bars"><option value="2">2 bars</option><option value="4" selected>4 bars</option><option value="8">8 bars</option><option value="12">12 bars</option><option value="16">16 bars</option></select></div>
+<div><label for="octave">Octave</label><select id="octave"><option value="2">Low</option><option value="3">Lower-mid</option><option value="4" selected>Mid</option><option value="5">High</option><option value="6">Very high</option></select></div>
+<div><label for="seed">Variation number</label><input id="seed" type="number" min="0" max="999999" value="7"></div>
+</div>
+<button class="primary" id="generate">Generate music <span>↗</span></button>
+<p class="fine">Creates a downloadable MIDI file. Use a MIDI player or music software to listen with your chosen instrument sound.</p>
+</section>
+<section class="panel ai-panel">
+<div class="section-title"><div><p class="eyebrow">02 / IDEA TO MUSIC</p><h2>Describe the vibe</h2></div><span class="spark">✳</span></div>
+<p class="muted">Tell the optional AI assistant what you want, and it will suggest instrument and music settings.</p>
+<div class="prompt-examples"><button data-prompt="A calm flute melody for meditation">Calm meditation</button><button data-prompt="An upbeat drum groove for a workout">Workout beat</button><button data-prompt="A sad piano melody for a rainy evening">Rainy evening</button><button data-prompt="A bright trumpet tune for a celebration">Celebration</button></div>
+<label for="idea">YOUR MUSIC IDEA</label><textarea id="idea" rows="4" maxlength="600" placeholder="e.g. A gentle guitar melody, relaxed tempo, dreamy mood…"></textarea>
+<button class="secondary" id="suggest">Suggest settings with AI <span>✳</span></button>
+<div id="status" class="status" aria-live="polite">Your generated track details will appear here.</div>
+<div id="track-info" class="track-info hidden"></div>
+<a id="download" class="download hidden" href="#">Download MIDI file <span>↓</span></a>
+</section>
+</main>
+<footer><span>FORMA / SOUND LAB</span><span>Make room for a new sound.</span></footer>
+</div>
+<script src="{{ url_for('static', filename='app.js') }}"></script>
+</body></html>
